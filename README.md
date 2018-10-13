@@ -4,10 +4,7 @@ jay
 
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
-[![Version](https://img.shields.io/npm/v/jay.svg)](https://npmjs.org/package/jay)
 [![CircleCI](https://circleci.com/gh/jonallured/jay/tree/master.svg?style=shield)](https://circleci.com/gh/jonallured/jay/tree/master)
-[![Downloads/week](https://img.shields.io/npm/dw/jay.svg)](https://npmjs.org/package/jay)
-[![License](https://img.shields.io/npm/l/jay.svg)](https://github.com/jonallured/jay/blob/master/package.json)
 
 <!-- toc -->
 * [Usage](#usage)
