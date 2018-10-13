@@ -3,6 +3,7 @@
 [![CircleCI](https://circleci.com/gh/jonallured/jay/tree/master.svg?style=shield)](https://circleci.com/gh/jonallured/jay/tree/master)
 
 <!-- toc -->
+* [jay](#jay)
 * [Usage](#usage)
 * [Commands](#commands)
 <!-- tocstop -->
@@ -13,7 +14,7 @@ $ npm install -g jay
 $ jay COMMAND
 running command...
 $ jay (-v|--version|version)
-jay/0.0.0 darwin-x64 node-v8.1.4
+jay/0.0.0 darwin-x64 node-v10.11.0
 $ jay --help [COMMAND]
 USAGE
   $ jay COMMAND
@@ -22,8 +23,20 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
+* [`jay done`](#jay-done)
 * [`jay hello [FILE]`](#jay-hello-file)
 * [`jay help [COMMAND]`](#jay-help-command)
+
+## `jay done`
+
+Announce when things are done.
+
+```
+USAGE
+  $ jay done
+```
+
+_See code: [src/commands/done.ts](https://github.com/jonallured/jay/blob/v0.0.0/src/commands/done.ts)_
 
 ## `jay hello [FILE]`
 
