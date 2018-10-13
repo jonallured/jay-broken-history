@@ -1,9 +1,5 @@
-jay
-===
+# jay
 
-
-
-[![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![CircleCI](https://circleci.com/gh/jonallured/jay/tree/master.svg?style=shield)](https://circleci.com/gh/jonallured/jay/tree/master)
 
 <!-- toc -->
