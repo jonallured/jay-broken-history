@@ -1,5 +1,16 @@
 # jay
 
+I just run this locally, so installing looks like this:
+
+```
+$ c jay
+$ npm link
+$ asdf reshim
+```
+
+You don't always have to reshim, but if it doesn't link right, then that's
+probably the issue.
+
 [![CircleCI](https://circleci.com/gh/jonallured/jay/tree/master.svg?style=shield)](https://circleci.com/gh/jonallured/jay/tree/master)
 
 <!-- toc -->
