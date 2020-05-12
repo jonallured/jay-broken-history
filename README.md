@@ -16,6 +16,6 @@ $ asdf reshim
 You don't always have to reshim, but if it doesn't link right, then that's
 probably the issue.
 
-[badge]: https://circleci.com/gh/jonallured/jay/tree/master.svg?style=shield
-[circleci]: https://circleci.com/gh/jonallured/jay/tree/master)
+[badge]: https://circleci.com/gh/jonallured/jay.svg?style=svg
+[circleci]: https://circleci.com/gh/jonallured/jay
 [oclif]: https://oclif.io/
