@@ -16,7 +16,6 @@
   "devDependencies": {
     "@oclif/dev-cli": "^1.22.2",
     "@oclif/test": "^1.2.5",
-    "@oclif/tslint": "^3",
     "@types/chai": "^4.2.11",
     "@types/mocha": "^7.0.2",
     "@types/node": "^13.13.5",
@@ -26,7 +25,6 @@
     "nyc": "^15.0.1",
     "prettier": "^2.0.5",
     "ts-node": "^8.10.1",
-    "tslint": "^6.1.2",
     "typescript": "^3.8.3"
   },
   "engines": {
@@ -57,7 +55,6 @@
   },
   "scripts": {
     "postpack": "rm -f oclif.manifest.json",
-    "posttest": "tslint -p test -t stylish",
     "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
     "prettier": "prettier --write 'src/**/*.ts' 'test/**/*.ts'",
     "prettier-check": "prettier --check 'src/**/*.ts' 'test/**/*.ts'",
