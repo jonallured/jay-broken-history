@@ -1,5 +1,6 @@
 {
-  "name": "jay",
+  "name": "@jonallured/jay",
+  "description": "Various cli tricks and stunts.",
   "version": "0.0.0",
   "author": "Jon Allured @jonallured",
   "bin": {
