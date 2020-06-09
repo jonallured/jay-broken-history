@@ -39,9 +39,9 @@ test_defaults: &test_defaults
     - run:
         name: Show help
         command: ./bin/run --help
-    # - run:
-    #     name: Prettier check
-    #     command: yarn prettier-check
+    - run:
+        name: Prettier check
+        command: yarn prettier-check
     # - run:
     #     name: Lint
     #     command: yarn lint
