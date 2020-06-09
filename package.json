@@ -59,6 +59,7 @@
     "prettier": "prettier --write 'src/**/*.ts' 'test/**/*.ts'",
     "prettier-check": "prettier --check 'src/**/*.ts' 'test/**/*.ts'",
     "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
+    "type-check": "tsc --pretty --noEmit",
     "version": "oclif-dev readme && git add README.md"
   },
   "types": "lib/index.d.ts"
