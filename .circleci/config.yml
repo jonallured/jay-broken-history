@@ -42,9 +42,9 @@ test_defaults: &test_defaults
     - run:
         name: Prettier check
         command: yarn prettier-check
-    # - run:
-    #     name: Lint
-    #     command: yarn lint
+    - run:
+        name: Lint
+        command: yarn lint
     - run:
         name: Type check
         command: yarn type-check
