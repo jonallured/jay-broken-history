@@ -92,6 +92,29 @@ jobs:
     <<: *node_14_defaults
     <<: *test_defaults
 
+  deploy:
+    <<: *node_12_defaults
+    steps:
+      - checkout
+      - run:
+          name: Setup NPM
+          command: bash .circleci/setup-npm
+      - run:
+          name: Create yarn cache key
+          command: cp yarn.lock yarn-lock-cache.key && node --version >> yarn-lock-cache.key
+      - restore_cache:
+          name: Restore yarn cache
+          key: yarn-{{ checksum "yarn-lock-cache.key" }}
+      - run:
+          name: Yarn install
+          command: yarn install
+      - run:
+          name: Build package
+          command: yarn build
+      - run:
+          name: Publish package
+          command: npm publish
+
 workflows:
   version: 2
   default:
@@ -108,3 +131,11 @@ workflows:
       - test-node-14:
           requires:
             - build-node-14
+  release:
+    jobs:
+      - deploy:
+          filters:
+            tags:
+              only: /^v.*/
+            branches:
+              ignore: /.*/
