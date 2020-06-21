@@ -5,7 +5,15 @@ the [oclif][] framework.
 
 ## Installation
 
-I just run this locally, so installing looks like this:
+This is a published NPM package, so you can install with yarn or whatever:
+
+```
+$ yarn add @jonallured/jay
+# or
+$ yarn global add @jonallured/jay
+```
+
+I used to just run this locally, like so:
 
 ```
 $ c jay
