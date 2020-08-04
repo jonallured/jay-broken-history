@@ -1,0 +1,35 @@
+#!/bin/bash
+
+set -ex
+
+message=$(cat <<"END"
+Library Updates
+
+This commit updates libraries like this:
+
+```
+$ yarn upgrade --latest
+```
+
+It was automatically run with this script:
+
+```
+$ ./bin/update
+```
+END
+)
+
+current_branch=$(git branch --show-current)
+if [ "$current_branch" != "master" ]; then
+  echo "must be on master branch"
+  exit 1
+fi
+
+git fetch --all --quiet
+git checkout -b updates
+yarn upgrade --latest
+./bin/check-all
+git add .
+git commit --message "$message"
+git push origin updates
+hub pull-request --message "$message"
