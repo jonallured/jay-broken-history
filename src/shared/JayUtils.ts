@@ -7,10 +7,17 @@ import {
   writeFileSync,
 } from "fs"
 import { homedir, hostname } from "os"
+import fetch from "node-fetch"
 
 const exec = (command: string): string => {
   const result = execSync(command, { encoding: "utf-8" })
   return result.trim()
+}
+
+const fetchText = async (url: string): Promise<string> => {
+  const response = await fetch(url)
+  const body = await response.text()
+  return body
 }
 
 const fileExists = (path: string): boolean => {
@@ -43,6 +50,7 @@ const writeFile = (path: string, data: string): void => {
 
 export const JayUtils = {
   exec,
+  fetchText,
   fileExists,
   getHomedir,
   getHostname,
