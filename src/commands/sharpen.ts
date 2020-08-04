@@ -1,7 +1,6 @@
 import { Command } from "@oclif/command"
 import * as moment from "moment"
-import { hostname as getHostName } from "os"
-import { exec } from "child_process"
+import { JayUtils } from "../shared/JayUtils"
 
 export const computeSharpenIssueUrl = (
   weekNumber: number,
@@ -23,11 +22,12 @@ export default class Sharpen extends Command {
 
   async run(): Promise<void> {
     const weekNumber = moment().week()
-    const hostname = getHostName().split(".")[0]
+    const hostname = JayUtils.getHostname().split(".")[0]
 
     const newIssueUrl = computeSharpenIssueUrl(weekNumber, hostname)
-    const command = `open "${newIssueUrl}"`
+    const command = `echo "${newIssueUrl}"`
+    console.log(command)
 
-    exec(command)
+    JayUtils.exec(command)
   }
 }
