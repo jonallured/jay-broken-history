@@ -64,7 +64,12 @@
     },
     "plugins": [
       "@oclif/plugin-help"
-    ]
+    ],
+    "topics": {
+      "keys": {
+        "description": "Manage authorized keys."
+      }
+    }
   },
   "repository": "jonallured/jay",
   "prettier": {

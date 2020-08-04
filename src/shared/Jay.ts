@@ -1,11 +1,28 @@
 import { JayUtils } from "./JayUtils"
 
 interface JayConfig {
+  keysDir: string
+  keysFilePath: string
+  safelistFilePath: string
   sshDir: string
+  symlinkPath: string
+  unmanagedFilePath: string
 }
 
+const sshDir = [JayUtils.getHomedir(), ".ssh"].join("/")
+const keysDir = [sshDir, "keys"].join("/")
+const keysFilePath = [keysDir, "authorized.keys"].join("/")
+const safelistFilePath = [keysDir, "safelist"].join("/")
+const symlinkPath = [sshDir, "authorized_keys"].join("/")
+const unmanagedFilePath = [keysDir, "unmanaged.keys"].join("/")
+
 const defaultConfig: JayConfig = {
-  sshDir: [JayUtils.getHomedir(), ".ssh"].join("/"),
+  keysDir,
+  keysFilePath,
+  safelistFilePath,
+  sshDir,
+  symlinkPath,
+  unmanagedFilePath,
 }
 
 export class Jay {
