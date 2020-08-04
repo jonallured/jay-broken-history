@@ -1,5 +1,11 @@
 import { execSync } from "child_process"
-import { existsSync, mkdirSync, symlinkSync, writeFileSync } from "fs"
+import {
+  existsSync,
+  mkdirSync,
+  readFileSync,
+  symlinkSync,
+  writeFileSync,
+} from "fs"
 import { homedir, hostname } from "os"
 
 const exec = (command: string): string => {
@@ -23,6 +29,10 @@ const mkdir = (directory: string): string => {
   return mkdirSync(directory, { recursive: true })
 }
 
+const readFile = (path: string): string => {
+  return readFileSync(path, { encoding: "utf-8" })
+}
+
 const symlink = (path: string, symlinkPath: string): void => {
   symlinkSync(path, symlinkPath)
 }
@@ -37,6 +47,7 @@ export const JayUtils = {
   getHomedir,
   getHostname,
   mkdir,
+  readFile,
   symlink,
   writeFile,
 }
