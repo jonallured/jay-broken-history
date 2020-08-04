@@ -59,6 +59,9 @@
   "oclif": {
     "commands": "./lib/commands",
     "bin": "jay",
+    "hooks": {
+      "init": "src/hooks/init.ts"
+    },
     "plugins": [
       "@oclif/plugin-help"
     ]
