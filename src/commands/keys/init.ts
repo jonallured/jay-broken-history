@@ -1,5 +1,4 @@
 import { Command } from "@oclif/command"
-import { JayUtils } from "../../shared/JayUtils"
 import { Jay } from "../../shared/Jay"
 
 export default class Init extends Command {
@@ -12,18 +11,18 @@ export default class Init extends Command {
       safelistFilePath,
       symlinkPath,
       unmanagedFilePath,
-    } = Jay.instance.config
+    } = Jay.config
 
-    JayUtils.mkdir(keysDir)
+    Jay.utils.mkdir(keysDir)
 
     const paths: string[] = [safelistFilePath, keysFilePath, unmanagedFilePath]
 
     paths.forEach((path) => {
-      JayUtils.writeFile(path, "")
+      Jay.utils.writeFile(path, "")
     })
 
-    if (!JayUtils.fileExists(symlinkPath)) {
-      JayUtils.symlink(keysFilePath, symlinkPath)
+    if (!Jay.utils.fileExists(symlinkPath)) {
+      Jay.utils.symlink(keysFilePath, symlinkPath)
     }
   }
 }

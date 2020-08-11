@@ -1,8 +1,8 @@
 import { Hook } from "@oclif/config"
-import { Jay } from "../shared/Jay"
+import { JayConfig } from "../shared/JayConfig"
 
 const initHook: Hook<"init"> = async () => {
-  Jay.init()
+  JayConfig.init()
 }
 
 export default initHook
