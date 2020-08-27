@@ -3,11 +3,11 @@ import { JayUtils } from "./JayUtils"
 export class JayConfig {
   static instance: JayConfig
 
-  static init = (sshDir?: string): JayConfig => {
+  static init = (): JayConfig => {
     if (JayConfig.instance) return JayConfig.instance
 
-    const fallbackSshDir = [JayUtils.getHomedir(), ".ssh"].join("/")
-    return new JayConfig(sshDir || fallbackSshDir)
+    const sshDir = [JayUtils.getHomedir(), ".ssh"].join("/")
+    return new JayConfig(sshDir)
   }
 
   keysDir: string
