@@ -1,13 +1,5 @@
 import Remove from "../../../src/commands/keys/remove"
-import * as keysHelper from "../../../src/helpers/keys"
-
-type HelperName = keyof typeof keysHelper
-
-const mockKeysHelper = (helperName: HelperName) => {
-  const mockHelper = jest.fn()
-  jest.spyOn(keysHelper, helperName).mockImplementation(mockHelper)
-  return mockHelper
-}
+import { mockKeysHelper } from "../../init"
 
 describe("Remove", () => {
   it("does nothing with an empty list", async () => {

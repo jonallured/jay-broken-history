@@ -1,13 +1,5 @@
 import Add from "../../../src/commands/keys/add"
-import * as keysHelper from "../../../src/helpers/keys"
-
-type HelperName = keyof typeof keysHelper
-
-const mockKeysHelper = (helperName: HelperName) => {
-  const mockHelper = jest.fn()
-  jest.spyOn(keysHelper, helperName).mockImplementation(mockHelper)
-  return mockHelper
-}
+import { mockKeysHelper } from "../../init"
 
 describe("Add", () => {
   it("does nothing with an empty list", async () => {
