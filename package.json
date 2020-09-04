@@ -42,16 +42,20 @@
   ],
   "homepage": "https://github.com/jonallured/jay",
   "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts",
+      "tsx"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/test/init.ts"
+    ],
+    "testEnvironment": "node",
+    "testRegex": ".test\\.(ts|js)",
     "transform": {
       "^.+\\.(ts|tsx|js|jsx)$": "ts-jest"
-    },
-    "testRegex": ".test\\.(ts|js)",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "json"
-    ]
+    }
   },
   "keywords": [
     "oclif"

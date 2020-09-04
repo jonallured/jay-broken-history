@@ -9,6 +9,9 @@ export default class Add extends Command {
 
   async run(): Promise<void> {
     const appendList = this.parse(Add).argv
-    updateSafelist(Jay.config, appendList, [])
+
+    if (appendList.length > 0) {
+      updateSafelist(Jay.config, appendList, [])
+    }
   }
 }
