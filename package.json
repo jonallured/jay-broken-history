@@ -52,7 +52,7 @@
       "<rootDir>/test/init.ts"
     ],
     "testEnvironment": "node",
-    "testRegex": ".test\\.(ts|js)",
+    "testRegex": ".test\\.(ts|js)$",
     "transform": {
       "^.+\\.(ts|tsx|js|jsx)$": "ts-jest"
     }

@@ -1,0 +1,154 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`initializing with an already setup keys structure does nothing 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "name": "authorized_keys",
+      "size": 0,
+      "type": "file",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "name": "authorized.keys",
+          "size": 0,
+          "type": "file",
+        },
+        Object {
+          "name": "safelist",
+          "size": 0,
+          "type": "file",
+        },
+        Object {
+          "name": "unmanaged.keys",
+          "size": 0,
+          "type": "file",
+        },
+      ],
+      "name": "keys",
+      "size": 0,
+      "type": "directory",
+    },
+  ],
+  "name": "already-setup",
+  "size": 0,
+  "type": "directory",
+}
+`;
+
+exports[`initializing with an empty existing authorized keys file sets up an initial keys structure 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "name": "authorized_keys",
+      "size": 0,
+      "type": "file",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "name": "authorized.keys",
+          "size": 0,
+          "type": "file",
+        },
+        Object {
+          "name": "safelist",
+          "size": 0,
+          "type": "file",
+        },
+        Object {
+          "name": "unmanaged.keys",
+          "size": 0,
+          "type": "file",
+        },
+      ],
+      "name": "keys",
+      "size": 0,
+      "type": "directory",
+    },
+  ],
+  "name": "empty-existing",
+  "size": 0,
+  "type": "directory",
+}
+`;
+
+exports[`initializing with no existing authorized keys file sets up an initial keys structure 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "name": ".keep",
+      "size": 0,
+      "type": "file",
+    },
+    Object {
+      "name": "authorized_keys",
+      "size": 0,
+      "type": "file",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "name": "authorized.keys",
+          "size": 0,
+          "type": "file",
+        },
+        Object {
+          "name": "safelist",
+          "size": 0,
+          "type": "file",
+        },
+        Object {
+          "name": "unmanaged.keys",
+          "size": 0,
+          "type": "file",
+        },
+      ],
+      "name": "keys",
+      "size": 0,
+      "type": "directory",
+    },
+  ],
+  "name": "no-existing",
+  "size": 0,
+  "type": "directory",
+}
+`;
+
+exports[`initializing with some existing authorized keys setups up an inital keys structure and honors those existing keys 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "name": "authorized_keys",
+      "size": 0,
+      "type": "file",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "name": "authorized.keys",
+          "size": 0,
+          "type": "file",
+        },
+        Object {
+          "name": "safelist",
+          "size": 0,
+          "type": "file",
+        },
+        Object {
+          "name": "unmanaged.keys",
+          "size": 0,
+          "type": "file",
+        },
+      ],
+      "name": "keys",
+      "size": 0,
+      "type": "directory",
+    },
+  ],
+  "name": "some-existing",
+  "size": 0,
+  "type": "directory",
+}
+`;
