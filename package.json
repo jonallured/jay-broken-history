@@ -21,6 +21,7 @@
     "@types/node-fetch": "^2.5.7",
     "@typescript-eslint/eslint-plugin": "^4.0.1",
     "@typescript-eslint/parser": "^4.0.1",
+    "directory-tree": "^2.2.4",
     "eslint": "^7.8.1",
     "eslint-config-prettier": "^6.11.0",
     "globby": "^11.0.1",
