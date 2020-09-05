@@ -1,9 +1,8 @@
 import { Command } from "@oclif/command"
-import * as moment from "moment"
 import { Jay } from "../shared/Jay"
 
 export const computeSharpenIssueUrl = (
-  weekNumber: number,
+  weekNumber: string,
   hostname: string
 ): string => {
   const issueUrl = "https://github.com/jonallured/dotfiles/issues/new"
@@ -21,7 +20,8 @@ export default class Sharpen extends Command {
   static description = "Create sharpen ticket for this machine."
 
   async run(): Promise<void> {
-    const weekNumber = moment().week()
+    const weekCommand = "date +%V"
+    const weekNumber = Jay.utils.exec(weekCommand)
     const hostname = Jay.utils.getHostname().split(".")[0]
 
     const newIssueUrl = computeSharpenIssueUrl(weekNumber, hostname)

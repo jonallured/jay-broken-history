@@ -2,7 +2,7 @@ import { computeSharpenIssueUrl } from "../../src/commands/sharpen"
 
 describe("computeSharpenIssueUrl", () => {
   it("computes the GH issue url properly", () => {
-    const weekNumber = 1
+    const weekNumber = "1"
     const hostname = "juggernaut"
 
     const url = computeSharpenIssueUrl(weekNumber, hostname)
