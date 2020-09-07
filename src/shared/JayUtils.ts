@@ -1,6 +1,7 @@
 import { execSync } from "child_process"
 import {
   existsSync,
+  lstatSync,
   mkdirSync,
   readFileSync,
   symlinkSync,
@@ -44,6 +45,15 @@ const symlink = (path: string, symlinkPath: string): void => {
   symlinkSync(path, symlinkPath)
 }
 
+const symlinkExists = (path: string): boolean => {
+  try {
+    const stats = lstatSync(path)
+    return stats.isSymbolicLink()
+  } catch {
+    return false
+  }
+}
+
 const writeFile = (path: string, data: string): void => {
   writeFileSync(path, data)
 }
@@ -57,5 +67,6 @@ export const JayUtils = {
   mkdir,
   readFile,
   symlink,
+  symlinkExists,
   writeFile,
 }
