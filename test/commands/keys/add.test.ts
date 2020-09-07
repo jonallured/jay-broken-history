@@ -1,5 +1,5 @@
 import Add from "../../../src/commands/keys/add"
-import { mockKeysHelper } from "../../init"
+import { mockKeysHelper } from "../../helpers"
 
 describe("Add", () => {
   it("does nothing with an empty list", async () => {

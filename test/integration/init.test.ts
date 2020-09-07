@@ -1,7 +1,7 @@
 import { initKeys } from "../../src/helpers/keys"
 import { JayConfig } from "../../src/shared/JayConfig"
 import { JayUtils } from "../../src/shared/JayUtils"
-import { captureStructure, root } from "../init"
+import { captureStructure, root } from "../helpers"
 
 const computePath = (testFolder: string): string => {
   const fixtureFolder = "tmp/test/integration/fixtures"

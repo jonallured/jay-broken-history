@@ -1,5 +1,5 @@
 import Remove from "../../../src/commands/keys/remove"
-import { mockKeysHelper } from "../../init"
+import { mockKeysHelper } from "../../helpers"
 
 describe("Remove", () => {
   it("does nothing with an empty list", async () => {
