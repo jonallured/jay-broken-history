@@ -57,7 +57,12 @@ export const initKeys = (config: JayConfig): void => {
     Jay.utils.writeFile(path, "")
   })
 
-  if (!Jay.utils.fileExists(symlinkPath)) {
+  if (!Jay.utils.symlinkExists(symlinkPath)) {
+    if (Jay.utils.fileExists(symlinkPath)) {
+      const command = `mv ${symlinkPath} ${unmanagedFilePath}`
+      Jay.utils.exec(command)
+    }
+
     Jay.utils.symlink(keysFilePath, symlinkPath)
   }
 }
