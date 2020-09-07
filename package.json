@@ -48,9 +48,6 @@
       "ts",
       "tsx"
     ],
-    "setupFilesAfterEnv": [
-      "<rootDir>/test/init.ts"
-    ],
     "testEnvironment": "node",
     "testRegex": ".test\\.(ts|js)$",
     "transform": {
@@ -65,9 +62,6 @@
   "oclif": {
     "commands": "./lib/commands",
     "bin": "jay",
-    "hooks": {
-      "init": "src/hooks/init.ts"
-    },
     "plugins": [
       "@oclif/plugin-help"
     ],

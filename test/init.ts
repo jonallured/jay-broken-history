@@ -1,8 +1,5 @@
-import { JayConfig } from "../src/shared/JayConfig"
 import * as keysHelpers from "../src/helpers/keys"
 import dirTree from "directory-tree"
-
-JayConfig.init()
 
 export type KeysHelpersName = keyof typeof keysHelpers
 

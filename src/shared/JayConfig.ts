@@ -29,3 +29,5 @@ export class JayConfig {
     JayConfig.instance = this
   }
 }
+
+JayConfig.init()
