@@ -51,8 +51,9 @@ export const initKeys = (config: JayConfig): void => {
   Jay.utils.mkdir(keysDir)
 
   const paths: string[] = [safelistFilePath, keysFilePath, unmanagedFilePath]
+  const missingPaths = paths.filter((path) => !Jay.utils.fileExists(path))
 
-  paths.forEach((path) => {
+  missingPaths.forEach((path) => {
     Jay.utils.writeFile(path, "")
   })
 
