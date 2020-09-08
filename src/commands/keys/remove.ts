@@ -1,6 +1,6 @@
 import { Command } from "@oclif/command"
 import { Jay } from "../../shared/Jay"
-import { updateSafelist } from "../../helpers/keys"
+import { updateKeys, updateSafelist } from "../../helpers/keys"
 
 export default class Remove extends Command {
   static description = "remove a user from the safelist (then update)"
@@ -12,6 +12,7 @@ export default class Remove extends Command {
 
     if (removeList.length > 0) {
       updateSafelist(Jay.config, [], removeList)
+      updateKeys(Jay.config)
     }
   }
 }
