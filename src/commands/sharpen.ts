@@ -25,9 +25,7 @@ export default class Sharpen extends Command {
     const hostname = Jay.utils.getHostname().split(".")[0]
 
     const newIssueUrl = computeSharpenIssueUrl(weekNumber, hostname)
-    const command = `echo "${newIssueUrl}"`
-    console.log(command)
-
+    const command = `open "${newIssueUrl}"`
     Jay.utils.exec(command)
   }
 }
