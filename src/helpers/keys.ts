@@ -89,12 +89,12 @@ export const updateKeys = async (config: JayConfig): Promise<void> => {
   const safeData = Jay.utils.readFile(safelistFilePath)
   const safeUsernames = safeData.split("\n")
 
-  const promises = safeUsernames.map(async (username) => {
+  const fetchPromises = safeUsernames.map((username) => {
     const url = `https://github.com/${username}.keys`
-    return await Jay.utils.fetchText(url)
+    return Jay.utils.fetchText(url)
   })
 
-  const safeKeyData = await Promise.all(promises).then((bodies) => {
+  const safeKeyData = await Promise.all(fetchPromises).then((bodies) => {
     const trimmedBodies = bodies.map((body) => body.trim())
     return trimmedBodies.join("\n")
   })
