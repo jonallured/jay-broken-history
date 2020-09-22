@@ -8,14 +8,9 @@ type CreateRepoIssueResponse = Endpoints["POST /repos/:owner/:repo/issues"]["res
 
 export const computeIssueParams = (
   weekNumber: string,
-  hostname: string
+  hostname: string,
+  body: string
 ): CreateRepoIssueParams => {
-  const templatePath = [
-    Jay.config.dotHomePath,
-    "/.github/ISSUE_TEMPLATE/sharpen.md",
-  ].join("")
-  const body = Jay.utils.readFile(templatePath)
-
   const title = `Week ${weekNumber} - ${hostname}`
 
   const params = {
@@ -40,7 +35,13 @@ export default class Sharpen extends Command {
     const weekNumber = Jay.utils.exec(weekCommand)
     const hostname = Jay.utils.getHostname().split(".")[0]
 
-    const params = computeIssueParams(weekNumber, hostname)
+    const templatePath = [
+      Jay.config.dotHomePath,
+      "/.github/ISSUE_TEMPLATE/sharpen.md",
+    ].join("")
+    const body = Jay.utils.readFile(templatePath)
+
+    const params = computeIssueParams(weekNumber, hostname, body)
 
     octokit.issues
       .create(params)
