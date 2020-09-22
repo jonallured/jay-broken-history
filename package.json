@@ -11,11 +11,13 @@
     "@oclif/command": "^1.8.0",
     "@oclif/config": "^1.17.0",
     "@oclif/plugin-help": "^3.2.0",
+    "@octokit/rest": "^18.0.6",
     "node-fetch": "^2.6.1",
     "tslib": "^2.0.1"
   },
   "devDependencies": {
     "@oclif/dev-cli": "^1.22.2",
+    "@octokit/types": "^5.5.0",
     "@types/jest": "^26.0.13",
     "@types/node": "^14.6.4",
     "@types/node-fetch": "^2.5.7",
