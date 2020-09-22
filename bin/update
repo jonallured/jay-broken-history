@@ -2,6 +2,7 @@
 
 set -ex
 
+labels="automerge,lib update"
 message=$(cat <<"END"
 Library Updates
 
@@ -32,4 +33,4 @@ yarn upgrade --latest
 git add .
 git commit --message "$message"
 git push origin updates
-hub pull-request --message "$message"
+hub pull-request --message "$message" --labels "$labels"
