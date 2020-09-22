@@ -1,7 +1,7 @@
 {
   "name": "@jonallured/jay",
   "description": "Various cli tricks and stunts.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "Jon Allured @jonallured",
   "bin": {
     "jay": "./bin/run"
