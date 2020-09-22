@@ -10,6 +10,8 @@ export class JayConfig {
     return new JayConfig(sshDir)
   }
 
+  dotHomePath: string
+  gitHubToken: string
   keysDir: string
   keysFilePath: string
   safelistFilePath: string
@@ -18,8 +20,9 @@ export class JayConfig {
   unmanagedFilePath: string
 
   constructor(sshDir: string) {
+    this.dotHomePath = process.env["DOTHOME"] || "invalid"
+    this.gitHubToken = process.env["JAY_GH_TOKEN"] || "invalid"
     this.sshDir = sshDir
-
     this.keysDir = [this.sshDir, "keys"].join("/")
     this.keysFilePath = [this.keysDir, "authorized.keys"].join("/")
     this.safelistFilePath = [this.keysDir, "safelist"].join("/")

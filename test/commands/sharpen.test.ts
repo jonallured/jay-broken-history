@@ -1,14 +1,15 @@
-import { computeSharpenIssueUrl } from "../../src/commands/sharpen"
+import { computeIssueParams } from "../../src/commands/sharpen"
 
-describe("computeSharpenIssueUrl", () => {
-  it("computes the GH issue url properly", () => {
+describe("computeIssueParams", () => {
+  it("computes the issue params properly", () => {
     const weekNumber = "1"
     const hostname = "juggernaut"
 
-    const url = computeSharpenIssueUrl(weekNumber, hostname)
+    const params = computeIssueParams(weekNumber, hostname)
 
-    expect(url).toEqual(
-      "https://github.com/jonallured/dotfiles/issues/new?template=sharpen.md&title=Week%201%20-%20juggernaut&labels=sharpen"
-    )
+    expect(params.labels).toEqual(["sharpen"])
+    expect(params.owner).toEqual("jonallured")
+    expect(params.repo).toEqual("dotfiles")
+    expect(params.title).toEqual("Week 1 - juggernaut")
   })
 })
