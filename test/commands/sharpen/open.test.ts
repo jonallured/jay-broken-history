@@ -1,4 +1,4 @@
-import { computeIssueParams } from "../../src/commands/sharpen"
+import { computeIssueParams } from "../../../src/commands/sharpen/open"
 
 describe("computeIssueParams", () => {
   it("computes the issue params properly", () => {

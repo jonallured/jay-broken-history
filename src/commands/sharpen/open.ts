@@ -1,7 +1,7 @@
 import { Octokit } from "@octokit/rest"
 import { Endpoints } from "@octokit/types"
 import { Command } from "@oclif/command"
-import { Jay } from "../shared/Jay"
+import { Jay } from "../../shared/Jay"
 
 type CreateRepoIssueParams = Endpoints["POST /repos/:owner/:repo/issues"]["parameters"]
 type CreateRepoIssueResponse = Endpoints["POST /repos/:owner/:repo/issues"]["response"]
@@ -24,7 +24,7 @@ export const computeIssueParams = (
   return params
 }
 
-export default class Sharpen extends Command {
+export default class Open extends Command {
   static description = "Create sharpen ticket for this machine."
 
   async run(): Promise<void> {

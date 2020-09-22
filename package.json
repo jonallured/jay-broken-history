@@ -70,6 +70,9 @@
     "topics": {
       "keys": {
         "description": "Manage authorized keys."
+      },
+      "sharpen": {
+        "description": "Sharpen your tools."
       }
     }
   },
