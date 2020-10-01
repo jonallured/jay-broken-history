@@ -2,11 +2,13 @@
 
 set -ex
 
-labels="automerge,lib update"
-message=$(cat <<"END"
-Library Updates
+git ensure-main
 
-This commit updates libraries like this:
+labels="automerge,dependencies"
+message=$(cat <<"END"
+Dependency Updates
+
+This commit updates project dependencies like this:
 
 ```
 $ yarn upgrade --latest
@@ -20,12 +22,6 @@ $ ./bin/update
 END
 )
 
-current_branch=$(git branch --show-current)
-if [ "$current_branch" != "master" ]; then
-  echo "must be on master branch"
-  exit 1
-fi
-
 git fetch --all --quiet
 git checkout -b updates
 yarn upgrade --latest
@@ -33,4 +29,4 @@ yarn upgrade --latest
 git add .
 git commit --message "$message"
 git push origin updates
-hub pull-request --message "$message" --labels "$labels"
+gh pr create --fill --label "$labels"
