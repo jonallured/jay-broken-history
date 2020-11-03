@@ -71,6 +71,9 @@
       "keys": {
         "description": "Manage authorized keys."
       },
+      "feature": {
+        "description": "Setup feature branches and PRs."
+      },
       "sharpen": {
         "description": "Sharpen your tools."
       }
