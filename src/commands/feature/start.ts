@@ -45,40 +45,45 @@ const featureTypes = [
   "test",
 ]
 
+const nameArg = {
+  description: "Name of the feature being worked.",
+  name: "featureName",
+  required: true,
+}
+
+const typeArg = {
+  default: "feat",
+  description: "Type of the feature being worked.",
+  name: "featureType",
+  options: featureTypes,
+  required: true,
+}
+
+const jiraFlag = flags.string({
+  char: "j",
+  default: [],
+  description: "Jira ticket number like this: GRO-4.",
+  multiple: true,
+  required: false,
+})
+
+const teamFlag = flags.string({
+  char: "t",
+  default: [],
+  description: "GitHub team to CC on PR.",
+  multiple: true,
+  options: artsyTeams,
+  required: false,
+})
+
 export default class Start extends Command {
   static description = "Start a feature branch."
 
-  static args = [
-    {
-      name: "featureName",
-      required: true,
-      description: "Name of the feature being worked.",
-    },
-    {
-      name: "featureType",
-      required: true,
-      description: "Type of the feature being worked.",
-      default: "feat",
-      options: featureTypes,
-    },
-  ]
+  static args = [nameArg, typeArg]
 
   static flags = {
-    jira: flags.string({
-      char: "j",
-      default: [],
-      description: "Jira ticket number like this: GRO-4.",
-      multiple: true,
-      required: false,
-    }),
-    team: flags.string({
-      char: "t",
-      default: [],
-      description: "GitHub team to CC on PR.",
-      multiple: true,
-      options: artsyTeams,
-      required: false,
-    }),
+    jira: jiraFlag,
+    team: teamFlag,
   }
 
   async run(): Promise<void> {
