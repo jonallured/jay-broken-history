@@ -1,10 +1,11 @@
 import { Command, flags } from "@oclif/command"
 import { Jay } from "../../shared/Jay"
-
-const computeGithubTeamNames = (githubTeams: string[]): string[] => {
-  const githubTeamNames = githubTeams.map((name) => `@${name}`)
-  return githubTeamNames
-}
+import {
+  computeBranchName,
+  computeGithubTeamNames,
+  computeJiraLinks,
+  computePrTitle,
+} from "../../helpers/feature"
 
 const artsyTeams = [
   "artsy/collector-experience",
@@ -13,27 +14,6 @@ const artsyTeams = [
   "artsy/purchase-devs",
   "artsy/px-devs",
 ]
-
-const computeJiraLinks = (jiraTickets: string[]): string[] => {
-  const links = jiraTickets.map(
-    (ticket) => `https://artsyproduct.atlassian.net/browse/${ticket}`
-  )
-  return links
-}
-
-const computeBranchName = (
-  featureName: string,
-  featureType: string
-): string => {
-  const parts = [featureType, ...featureName.split(" ")]
-  const branchName = parts.join("-").toLowerCase()
-  return branchName
-}
-
-const computePRTitle = (featureName: string, featureType: string): string => {
-  const prTitle = [featureType, featureName].join(": ")
-  return prTitle
-}
 
 const featureTypes = [
   "chore",
@@ -93,7 +73,7 @@ export default class Start extends Command {
     const { jira: jiraTickets, team: githubTeams } = flags
 
     const branchName = computeBranchName(featureName, featureType)
-    const prTitle = computePRTitle(featureName, featureType)
+    const prTitle = computePrTitle(featureName, featureType)
 
     const jiraLinks = computeJiraLinks(jiraTickets)
     const githubTeamNames = computeGithubTeamNames(githubTeams)

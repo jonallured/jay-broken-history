@@ -1,18 +1,6 @@
 import { Command } from "@oclif/command"
 import { Jay } from "../../shared/Jay"
-
-const computePrBody = (
-  jiraLinks: string[],
-  githubTeamNames: string[]
-): string => {
-  const placeholder =
-    "This is a placeholder - please update with an awesome PR description!"
-  const tickets = jiraLinks.join("\n")
-  const mentions =
-    githubTeamNames.length > 0 && `/cc ${githubTeamNames.join(" ")}`
-  const body = [placeholder, tickets, mentions].filter(Boolean).join("\n\n")
-  return body
-}
+import { computePrBody } from "../../helpers/feature"
 
 export default class OpenPr extends Command {
   static description = "Open PR on upstream from feature branch."
