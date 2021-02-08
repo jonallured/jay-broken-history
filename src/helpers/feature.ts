@@ -38,8 +38,14 @@ export const computePrBody = (
 
 export const computePrTitle = (
   featureName: string,
-  featureType: string
+  featureType: string,
+  jiraTickets: string[]
 ): string => {
-  const prTitle = [featureType, featureName].join(": ")
-  return prTitle
+  const prefix = `${featureType}:`
+  const suffix = jiraTickets[0]
+
+  const parts = [prefix, featureName, suffix].filter(Boolean)
+  const title = parts.join(" ")
+
+  return title
 }

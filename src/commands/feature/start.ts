@@ -73,7 +73,7 @@ export default class Start extends Command {
     const { jira: jiraTickets, team: githubTeams } = flags
 
     const branchName = computeBranchName(featureName, featureType)
-    const prTitle = computePrTitle(featureName, featureType)
+    const prTitle = computePrTitle(featureName, featureType, jiraTickets)
 
     const jiraLinks = computeJiraLinks(jiraTickets)
     const githubTeamNames = computeGithubTeamNames(githubTeams)

@@ -128,7 +128,15 @@ describe("computePrTitle", () => {
   it("prepends the type to the feature name", () => {
     const featureName = "Update list of Repos"
     const featureType = "chore"
-    const prTitle = computePrTitle(featureName, featureType)
+    const prTitle = computePrTitle(featureName, featureType, [])
     expect(prTitle).toEqual("chore: Update list of Repos")
+  })
+
+  it("appends the Jira info to the feature name", () => {
+    const featureName = "Update list of Repos"
+    const featureType = "chore"
+    const jiraTickets = ["GRO-7"]
+    const prTitle = computePrTitle(featureName, featureType, jiraTickets)
+    expect(prTitle).toEqual("chore: Update list of Repos GRO-7")
   })
 })
