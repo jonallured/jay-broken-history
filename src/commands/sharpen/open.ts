@@ -3,8 +3,8 @@ import { Endpoints } from "@octokit/types"
 import { Command } from "@oclif/command"
 import { Jay } from "../../shared/Jay"
 
-type CreateRepoIssueParams = Endpoints["POST /repos/:owner/:repo/issues"]["parameters"]
-type CreateRepoIssueResponse = Endpoints["POST /repos/:owner/:repo/issues"]["response"]
+type CreateRepoIssueParams = Endpoints["POST /repos/{owner}/{repo}/issues"]["parameters"]
+type CreateRepoIssueResponse = Endpoints["POST /repos/{owner}/{repo}/issues"]["response"]
 
 export const computeIssueParams = (
   weekNumber: string,

@@ -33,8 +33,8 @@ const getHostname = (): string => {
   return hostname()
 }
 
-const mkdir = (directory: string): string => {
-  return mkdirSync(directory, { recursive: true })
+const mkdir = (directory: string): void => {
+  mkdirSync(directory, { recursive: true })
 }
 
 const readFile = (path: string): string => {
