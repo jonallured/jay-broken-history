@@ -15,14 +15,14 @@ export default class Nuke extends Command {
   async run(): Promise<void> {
     const { branchName } = this.parse(Nuke).args
 
-    const localCommand = `git branch -D ${branchName}`
+    const localCommand = `git branch -D ${branchName} || echo nope`
     Jay.utils.exec(localCommand)
 
-    const upstreamCommand = `git push upstream :${branchName}`
+    const upstreamCommand = `git push upstream --delete ${branchName} || echo nope`
     Jay.utils.exec(upstreamCommand)
 
     const originBranchName = branchName.split("/").pop()
-    const originCommand = `git push origin :${originBranchName}`
+    const originCommand = `git push origin --delete ${originBranchName} || echo nope`
     Jay.utils.exec(originCommand)
   }
 }
