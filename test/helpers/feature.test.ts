@@ -1,10 +1,10 @@
 import {
   computeBranchName,
-  computeGithubTeamNames,
   computeJiraLinks,
   computePrBody,
   computePrTitle,
   placeholderPrBody,
+  teamMention,
 } from "../../src/helpers/feature"
 
 describe("computeBranchName", () => {
@@ -33,32 +33,6 @@ describe("computeBranchName", () => {
     const branchName = computeBranchName(featureName, featureType)
 
     expect(branchName).toEqual("feat-this-feature-rules")
-  })
-})
-
-describe("computeGithubTeamNames", () => {
-  describe("with an empty array", () => {
-    it("returns an empty array", () => {
-      const githubTeams: string[] = []
-      const githubTeamNames = computeGithubTeamNames(githubTeams)
-      expect(githubTeamNames).toEqual([])
-    })
-  })
-
-  describe("with one team name", () => {
-    it("returns that name with @ prepended", () => {
-      const githubTeams = ["artsy/grow-devs"]
-      const githubTeamNames = computeGithubTeamNames(githubTeams)
-      expect(githubTeamNames).toEqual(["@artsy/grow-devs"])
-    })
-  })
-
-  describe("with a few team names", () => {
-    it("returns those names with @ preprended", () => {
-      const githubTeams = ["artsy/grow-devs", "artsy/px-devs"]
-      const githubTeamNames = computeGithubTeamNames(githubTeams)
-      expect(githubTeamNames).toEqual(["@artsy/grow-devs", "@artsy/px-devs"])
-    })
   })
 })
 
@@ -92,12 +66,12 @@ describe("computeJiraLinks", () => {
 })
 
 describe("computePrBody", () => {
-  describe("with no jira links or team names", () => {
-    it("returns the placeholder pr body", () => {
+  describe("with no jira links", () => {
+    it("returns the placeholder pr body and team mention", () => {
       const jiraLinks: string[] = []
-      const githubTeamNames: string[] = []
-      const body = computePrBody(jiraLinks, githubTeamNames)
-      expect(body).toEqual(placeholderPrBody)
+      const body = computePrBody(jiraLinks)
+      expect(body).toContain(placeholderPrBody)
+      expect(body).toContain(teamMention)
     })
   })
 
@@ -107,19 +81,9 @@ describe("computePrBody", () => {
         "https://artsyproduct.atlassian.net/browse/GRO-4",
         "https://artsyproduct.atlassian.net/browse/CX-7",
       ]
-      const githubTeamNames: string[] = []
-      const body = computePrBody(jiraLinks, githubTeamNames)
+      const body = computePrBody(jiraLinks)
       expect(body).toContain(jiraLinks[0])
       expect(body).toContain(jiraLinks[1])
-    })
-  })
-
-  describe("with some team names", () => {
-    it("CCs those team names", () => {
-      const jiraLinks: string[] = []
-      const githubTeamNames = ["@artsy/grow-devs", "@artsy/px-devs"]
-      const body = computePrBody(jiraLinks, githubTeamNames)
-      expect(body).toContain("/cc @artsy/grow-devs @artsy/px-devs")
     })
   })
 })

@@ -2,18 +2,9 @@ import { Command, flags } from "@oclif/command"
 import { Jay } from "../../shared/Jay"
 import {
   computeBranchName,
-  computeGithubTeamNames,
   computeJiraLinks,
   computePrTitle,
 } from "../../helpers/feature"
-
-const artsyTeams = [
-  "artsy/collector-experience",
-  "artsy/fx-devs",
-  "artsy/grow-devs",
-  "artsy/purchase-devs",
-  "artsy/px-devs",
-]
 
 const featureTypes = [
   "chore",
@@ -47,15 +38,6 @@ const jiraFlag = flags.string({
   required: false,
 })
 
-const teamFlag = flags.string({
-  char: "t",
-  default: [],
-  description: "GitHub team to CC on PR.",
-  multiple: true,
-  options: artsyTeams,
-  required: false,
-})
-
 export default class Start extends Command {
   static description = "Start a feature branch."
 
@@ -63,20 +45,18 @@ export default class Start extends Command {
 
   static flags = {
     jira: jiraFlag,
-    team: teamFlag,
   }
 
   async run(): Promise<void> {
     const { args, flags } = this.parse(Start)
 
     const { featureName, featureType } = args
-    const { jira: jiraTickets, team: githubTeams } = flags
+    const { jira: jiraTickets } = flags
 
     const branchName = computeBranchName(featureName, featureType)
     const prTitle = computePrTitle(featureName, featureType, jiraTickets)
 
     const jiraLinks = computeJiraLinks(jiraTickets)
-    const githubTeamNames = computeGithubTeamNames(githubTeams)
 
     const newBranchCommand = `git checkout -b ${branchName}`
     Jay.utils.exec(newBranchCommand)
@@ -85,7 +65,6 @@ export default class Start extends Command {
     Jay.utils.exec(pushCommand)
 
     const branchInfo = {
-      githubTeamNames,
       jiraLinks,
       prTitle,
     }

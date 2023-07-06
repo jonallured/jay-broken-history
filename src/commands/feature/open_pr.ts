@@ -12,7 +12,7 @@ export default class OpenPr extends Command {
     const getDescriptionCommand = `git config --get branch.${branchName}.description`
     const branchDescription = Jay.utils.exec(getDescriptionCommand)
     const branchInfo = JSON.parse(branchDescription)
-    const { githubTeamNames, jiraLinks, prTitle } = branchInfo
+    const { jiraLinks, prTitle } = branchInfo
 
     const renameBranchCommand = `git branch -m jonallured/${branchName}`
     Jay.utils.exec(renameBranchCommand)
@@ -20,7 +20,7 @@ export default class OpenPr extends Command {
     const pushCommand = `git push --set-upstream upstream HEAD`
     Jay.utils.exec(pushCommand)
 
-    const prBody = computePrBody(jiraLinks, githubTeamNames)
+    const prBody = computePrBody(jiraLinks)
     const prCommand = `gh pr create --title '${prTitle}' --body '${prBody}' --web`
     Jay.utils.exec(prCommand)
   }
