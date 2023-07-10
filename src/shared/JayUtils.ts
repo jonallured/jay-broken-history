@@ -8,7 +8,14 @@ import {
   writeFileSync,
 } from "fs"
 import { homedir, hostname } from "os"
-import fetch from "node-fetch"
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+const fetch = (...args) => {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  return import("node-fetch").then(({ default: fetch }) => fetch(...args))
+}
 
 const exec = (command: string): string => {
   const result = execSync(command, { encoding: "utf-8" })

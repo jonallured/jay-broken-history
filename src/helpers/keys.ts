@@ -12,7 +12,7 @@ export const computeSafelist = (update: SafeListUpdate): string[] => {
 
   const combinedList = initialList.concat(appendList)
   const filteredList = combinedList.filter(
-    (item) => item && !removeList.includes(item)
+    (item) => item && !removeList.includes(item),
   )
   const sortedList = filteredList.sort()
   const uniqueList = [...new Set(sortedList)]
@@ -23,7 +23,7 @@ export const computeSafelist = (update: SafeListUpdate): string[] => {
 export const updateSafelist = (
   config: JayConfig,
   appendList: string[],
-  removeList: string[]
+  removeList: string[],
 ): void => {
   const { safelistFilePath } = config
   const existingData = Jay.utils.readFile(safelistFilePath)

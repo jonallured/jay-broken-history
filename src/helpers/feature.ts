@@ -1,6 +1,6 @@
 export const computeBranchName = (
   featureName: string,
-  featureType: string
+  featureType: string,
 ): string => {
   const cleanedName = featureName.replace(/[^a-zA-Z ]/g, "")
   const parts = [featureType, ...cleanedName.split(" ")]
@@ -25,7 +25,7 @@ export const placeholderPrBody =
 
 export const computePrBody = (
   jiraLinks: string[],
-  githubTeamNames: string[]
+  githubTeamNames: string[],
 ): string => {
   const tickets = jiraLinks.join("\n")
   const mentions =
@@ -39,7 +39,7 @@ export const computePrBody = (
 export const computePrTitle = (
   featureName: string,
   featureType: string,
-  jiraTickets: string[]
+  jiraTickets: string[],
 ): string => {
   const prefix = `${featureType}:`
   const suffix = jiraTickets[0]
