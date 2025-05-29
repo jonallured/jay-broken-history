@@ -22,4 +22,15 @@ RSpec.describe Jay::CLI do
       end.to output(expected_output).to_stdout
     end
   end
+
+  context "with nuke command" do
+    let(:argument_vector) { ["nuke", "test-branch"] }
+
+    it "deletes the branch" do
+      expected_output = "Nuking test-branch...\n         run  echo hi from \".\"\n"
+      expect do
+        Jay::CLI.start(argument_vector)
+      end.to output(expected_output).to_stdout
+    end
+  end
 end
