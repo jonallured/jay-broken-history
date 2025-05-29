@@ -1,3 +1,4 @@
 Commands:
   jay help [COMMAND]  # Describe available commands or one specific command
+  jay version         # Print the version
 
